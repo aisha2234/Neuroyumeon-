@@ -13,23 +13,14 @@
     <header>
         <div class="nav">
             <ul>
-                <li><img width="183px" src="Images/images/Frame_1.svg" alt=""></li>
-                <img src="blob:https://web.telegram.org/f6496a5a-3306-4296-8e80-7670a4417c9b" alt="">
+                <li><img width="250px" src="72d55535-94b2-4a91-b7ab-532aecb9a558.png" alt=""></li>
                 <li></li>
-                <li>Об игре</li>
-                <li>Стоимость</li>
-                <li>Контакты</li>
+                <li>Кабинет сотрудника</li>
+                <li>Трафик</li>
+                <li>Быстрый мониторинг</li>
                 <li></li>
                 <li></li>
-                <label class="container bell-container">
-                    <input type="checkbox" checked="checked">
-                    <svg class="bell-regular" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
-                        <path d="M224 0c-17.7 0-32 14.3-32 32V49.9C119.5 61.4 64 124.2 64 200v33.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416H424c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4V200c0-75.8-55.5-138.6-128-150.1V32c0-17.7-14.3-32-32-32zm0 96h8c57.4 0 104 46.6 104 104v33.4c0 47.9 13.9 94.6 39.7 134.6H72.3C98.1 328 112 281.3 112 233.4V200c0-57.4 46.6-104 104-104h8zm64 352H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z"></path>
-                    </svg>
-                    <svg class="bell-solid" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
-                        <path d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416H416c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"></path>
-                    </svg>
-                </label>
+                
                 <label class="switch">
                     <input id="input" type="checkbox" checked="darkTheme" />
                     <div class="slider round">
@@ -64,11 +55,10 @@
                     <h1 class="h1l">Умный AI-дашборд для управления городом по принципу цифрового пульса города</h1>
                     <h1 class="h1r">В Система не просто показывает цифры. Она анализирует транспорт, экологию и ЖКХ в реальном времени, выявляет каскадные проблемы и <br>предлагает конкретные управленческие решения при ограниченных ресурсах.</h1>
                 </div>
-                <div class="right">
-                    <button class="btn1">НАШ ИИ СОВЕТНИКА</button>
-                </div>
-            </div>
+           
 
+
+                
             <div class="bottom">
                 <div class="block1">
                     <h2 class="h2l">Визуализация
@@ -85,6 +75,46 @@
 Система формирует краткую сводку и предлагает оптимальные действия с учетом ограниченности ресурсов.</p>
                 </div>
             </div>
+            
+<div class="group relative flex w-80 flex-col rounded-xl bg-slate-950 p-4 shadow-2xl mt-6">
+    <h3 class="text-sm font-semibold text-white mb-2">Traffic Overview</h3>
+    <canvas id="trafficChart" width="300" height="100"></canvas>
+    <button onclick="updateTraffic()" class="mt-2 bg-indigo-500 px-2 py-1 rounded text-white text-xs hover:bg-indigo-600">
+        Update Traffic
+    </button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('trafficChart').getContext('2d');
+let trafficChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+        datasets: [{
+            label: 'Vehicles',
+            data: [1200, 1500, 1300, 1600, 1400, 1800, 1700],
+            backgroundColor: 'rgba(99,102,241,0.2)',
+            borderColor: 'rgba(99,102,241,1)',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.4
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+            y: { beginAtZero: false }
+        }
+    }
+});
+
+function updateTraffic() {
+    trafficChart.data.datasets[0].data = trafficChart.data.datasets[0].data.map(() => Math.floor(Math.random() * 2000));
+    trafficChart.update();
+}
+</script>
 
 <div class="card">
   <div class="header">
@@ -110,6 +140,177 @@
     </a>
   </div>
 </div>
+<div class="card">
+  <div class="container">
+    <div class="cloud front">
+      <span class="left-front"></span>
+      <span class="right-front"></span>
+    </div>
+    <span class="sun sunshine"></span>
+    <span class="sun"></span>
+    <div class="cloud back">
+      <span class="left-back"></span>
+      <span class="right-back"></span>
+    </div>
+  </div>
+
+  <div class="card-header">
+    <span>Messadine, Susah<br>Tunisia</span>
+    <span>March 13</span>
+  </div>
+
+  <span class="temp">23°</span>
+
+  <div class="temp-scale">
+    <span>Celcius</span>
+  </div>
+</div>
+
+
+
+<div class="group relative flex w-80 flex-col items-center rounded-xl bg-[#0f0f2f] p-4 shadow-2xl mt-6">
+    <h3 class="text-sm font-semibold text-white mb-4">City KPI Overview</h3>
+    <div class="relative w-40 h-40">
+        <canvas id="greenBlueKPI" width="160" height="160"></canvas>
+        <!-- Inner KPI circles -->
+        <div class="absolute inset-0 flex items-center justify-center gap-3">
+            <span class="w-5 h-5 rounded-full bg-gradient-to-br from-green-400 to-blue-400 shadow-[0_0_10px_rgba(52,211,153,0.6)] animate-pulse"></span>
+            <span class="w-5 h-5 rounded-full bg-gradient-to-br from-blue-400 to-green-400 shadow-[0_0_10px_rgba(59,130,246,0.6)] animate-pulse"></span>
+            <span class="w-5 h-5 rounded-full bg-gradient-to-br from-green-400 via-blue-400 to-green-400 shadow-[0_0_10px_rgba(52,211,153,0.6)] animate-pulse"></span>
+        </div>
+    </div>
+    <button onclick="updateGreenBlueKPI()" class="mt-3 bg-gradient-to-r from-green-400 to-blue-400 px-3 py-1 rounded text-white text-xs hover:opacity-90">
+        Update KPI
+    </button>
+</div>
+
+<script>
+const ctxGB = document.getElementById('greenBlueKPI').getContext('2d');
+let greenBlueChart = new Chart(ctxGB, {
+    type: 'doughnut',
+    data: {
+        labels: ['Traffic', 'Energy', 'Environment'],
+        datasets: [{
+            label: 'KPI Metrics',
+            data: [45, 25, 30],
+            backgroundColor: [
+                'rgba(52,211,153,0.8)',  // Зеленый
+                'rgba(59,130,246,0.8)',  // Голубой
+                'rgba(16,185,129,0.8)'   
+            ],
+            borderWidth: 3,
+            borderColor: 'rgba(255,255,255,0.2)',
+        }]
+    },
+    options: {
+        responsive: true,
+        cutout: '60%',
+        plugins: {
+            legend: { display: false },
+        }
+    }
+});
+
+function updateGreenBlueKPI() {
+    greenBlueChart.data.datasets[0].data = greenBlueChart.data.datasets[0].data.map(() => Math.floor(Math.random() * 100));
+    greenBlueChart.update();
+}
+</script>
+
+<!-- Transport KPI Graph -->
+<div class="group relative flex w-80 flex-col items-center rounded-xl bg-[#0f0f2f] p-4 shadow-2xl mt-6">
+    <h3 class="text-sm font-semibold text-white mb-4">Transport Flow</h3>
+    <canvas id="transportKPI" width="300" height="120"></canvas>
+    <button onclick="updateTransportKPI()" class="mt-3 bg-gradient-to-r from-green-400 to-blue-400 px-3 py-1 rounded text-white text-xs hover:opacity-90">
+        Update Transport
+    </button>
+</div>
+
+<script>
+const ctxTransport = document.getElementById('transportKPI').getContext('2d');
+let transportChart = new Chart(ctxTransport, {
+    type: 'line',
+    data: {
+        labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+        datasets: [{
+            label: 'Vehicles',
+            data: [800, 950, 900, 1200, 1100, 1300, 1250],
+            backgroundColor: 'rgba(52,211,153,0.2)', // прозрачная заливка
+            borderColor: 'rgba(59,130,246,0.9)',     // линия графика
+            borderWidth: 3,
+            tension: 0.4,
+            fill: true,
+            pointBackgroundColor: 'rgba(52,211,153,1)',
+            pointBorderColor: '#0f0f2f',
+            pointRadius: 5,
+            pointHoverRadius: 7
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+            y: {
+                beginAtZero: false,
+                ticks: { color: 'white' },
+                grid: { color: 'rgba(255,255,255,0.1)' }
+            },
+            x: {
+                ticks: { color: 'white' },
+                grid: { color: 'rgba(255,255,255,0.1)' }
+            }
+        }
+    }
+});
+
+function updateTransportKPI() {
+    transportChart.data.datasets[0].data = transportChart.data.datasets[0].data.map(() => Math.floor(Math.random() * 1500 + 500));
+    transportChart.update();
+}
+</script>
+
+<!-- Ecology KPI - Radial Bars -->
+<div class="group relative flex w-80 flex-col items-center rounded-xl bg-[#0f0f2f] p-4 shadow-2xl mt-6">
+    <h3 class="text-sm font-semibold text-white mb-4">City Ecology</h3>
+    <canvas id="ecoKPI" width="200" height="200"></canvas>
+    <button onclick="updateEcoKPI()" class="mt-3 bg-gradient-to-r from-green-400 to-blue-400 px-3 py-1 rounded text-white text-xs hover:opacity-90">
+        Update Ecology
+    </button>
+</div>
+
+<script>
+const ctxEco = document.getElementById('ecoKPI').getContext('2d');
+
+let ecoChart = new Chart(ctxEco, {
+    type: 'doughnut',
+    data: {
+        labels: ['Air Quality', 'Noise Level', 'Green Zones'],
+        datasets: [{
+            label: 'Ecology Metrics',
+            data: [70, 40, 55], 
+            backgroundColor: [
+                'rgba(52,211,153,0.8)', // зеленый
+                'rgba(59,130,246,0.8)', // голубой
+                'rgba(16,185,129,0.8)'  
+            ],
+            borderWidth: 8,
+            borderColor: 'rgba(255,255,255,0.1)',
+            cutout: '70%' 
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: true, labels: { color: 'white', font: { size: 12 } } }
+        }
+    }
+});
+
+function updateEcoKPI() {
+    ecoChart.data.datasets[0].data = ecoChart.data.datasets[0].data.map(() => Math.floor(Math.random() * 100));
+    ecoChart.update();
+}
+</script>
 
 
             <div class="group relative flex w-80 flex-col rounded-xl bg-slate-950 p-4 shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-indigo-500/20">
