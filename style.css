@@ -1,0 +1,441 @@
+/* Базовый сброс и общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Для "на весь экрана" */
+    overflow-x: hidden; /* Чтобы не было горизонтального скролла */
+}
+
+body {
+    font-family: sans-serif;
+    background-image: url(https://messages-prod.27c852f3500f38c1e7786e2c9ff9e48f.r2.cloudflarestorage.com/019d48ec-ef95-77e1-a960-af811fb1f87f/1775216529257-019d5325-c45b-7b15-beba-6fa3394da4f1.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=75514238966d6677c3874ef9149f1398%2F20260403%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260403T114209Z&X-Amz-Expires=3600&X-Amz-Signature=798773208466ad43e7277dbda45d49421af2049f00df110408bf310c900b6f9c&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject);
+    color: #000; /* Черный текст по скриншоту */
+    display: flex; /* Для корректного расположения header */
+    flex-direction: column;
+}
+
+header {
+    width: 100%;
+    /* Если фон хедера должен быть другого цвета, это можно добавить здесь */
+}
+
+/* Навигация */
+.nav {
+    width: 100%;
+    background-color: #9FF5FB; /* Темный фон навигации */
+    color: #fff; /* Белый текст навигации */
+    padding: 10px 40px;
+    border-top: 5px solid #a3c5ff; /* Розовая полоска сверху по скриншоту */
+    border-radius: 45px;
+}
+
+.nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Элементы начинаются слева */
+    list-style: none;
+    gap: 30px; /* Расстояние между элементами */
+}
+
+.nav ul li {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.nav ul li:first-child { /* Логотип */
+    margin-right: auto; /* Логотип прижимается влево */
+}
+
+/* Компоненты Uiverse (колокольчик и переключатель) */
+/* Они располагаются справа */
+.bell-container, .switch {
+    margin-left: 20px; /* Отступ от предыдущего элемента */
+}
+
+/* Стили для Колокольчика */
+.bell-container {
+    position: relative;
+    display: inline-block; /* или flex */
+    cursor: pointer;
+}
+
+.bell-container input {
+    display: none;
+}
+
+.bell-container svg {
+    width: 24px;
+    height: 24px;
+    fill: #ccc; /* Цвет колокольчика */
+    transition: fill 0.3s ease;
+}
+
+.bell-container input:checked ~ .bell-regular {
+    display: none;
+}
+
+.bell-container input:not(:checked) ~ .bell-solid {
+    display: none;
+}
+
+.bell-container input:checked ~ .bell-solid {
+    display: block;
+    fill: #fff; /* Активный цвет */
+}
+
+/* Стили для Переключателя Темы */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 56px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: #333; /* Темный фон переключателя */
+    transition: 0.4s;
+    overflow: hidden;
+}
+
+.slider.round {
+    border-radius: 28px;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background: #14ff1b; /* Цвет солнца */
+    transition: 0.4s;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+input:checked + .slider {
+    background: #3bf2ff; /* Фон переключателя в ночном режиме */
+}
+
+input:checked + .slider::before {
+    transform: translateX(28px);
+    background: #bbb; /* Цвет луны */
+}
+
+.sun-moon,
+.stars {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.moon-dot,
+.light-ray,
+.cloud-dark,
+.cloud-light,
+.star {
+    position: absolute;
+    transition: all 0.4s ease;
+}
+
+.moon-dot {
+    width: 4px;
+    height: 4px;
+    fill: #777;
+    opacity: 0;
+}
+
+input:checked ~ .slider .moon-dot {
+    opacity: 1;
+}
+
+#moon-dot-1 { top: 8px; right: 10px; }
+#moon-dot-2 { top: 14px; right: 6px; }
+#moon-dot-3 { top: 10px; right: 16px; }
+
+.light-ray {
+    width: 3px;
+    height: 3px;
+    fill: #42ffcc;
+    opacity: 1;
+}
+
+input:checked ~ .slider .light-ray {
+    opacity: 0;
+}
+
+#light-ray-1 { top: 4px; left: 20px; }
+#light-ray-2 { bottom: 4px; left: 14px; }
+#light-ray-3 { top: 12px; left: 8px; }
+
+.cloud-dark,
+.cloud-light {
+    width: 6px;
+    height: 6px;
+    opacity: 0;
+}
+
+.cloud-dark { fill: #38f8ff; }
+.cloud-light { fill: #f8ff39; }
+
+.star {
+    width: 6px;
+    height: 6px;
+    fill: #FFD700;
+    opacity: 0;
+}
+
+input:checked ~ .slider .star {
+    opacity: 1;
+}
+
+#star-1 { top: 5px; left: 10px; }
+#star-2 { top: 15px; left: 18px; }
+#star-3 { top: 8px; left: 28px; }
+#star-4 { bottom: 6px; left: 14px; }
+
+
+/* Основной контейнер контента */
+.main-content-wrapper {
+    flex-grow: 1; /* Чтобы контейнер занимал всё доступное пространство */
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px; /* Отступы по бокам */
+}
+
+/* Секция TOP */
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px; /* Расстояние между левой и правой частью */
+    padding: 50px 0;
+    flex-wrap: wrap; /* Для адаптивности */
+}
+
+.left {
+    flex: 1;
+    min-width: 300px; /* Минимальная ширина для текста */
+}
+
+.h1l {
+    font-size: 48px; /* Большой размер шрифта по скриншоту */
+    font-weight: 900; /* Очень жирный шрифт */
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #000; /* Черный цвет текста по скриншоту */
+}
+
+.h1r {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #000; /* Черный цвет текста по скриншоту */
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Не сжимать */
+    min-width: 200px; /* Чтобы кнопка всегда была видна */
+}
+
+.btn1 {
+    width: 200px; /* Ширина круга */
+    height: 200px; /* Высота круга */
+    border-radius: 50%; /* Делаем круглым */
+    background-color: #6edaf0; /* Цвет кнопки по скриншоту */
+    color: #fff; /* Белый текст кнопки */
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn1:hover {
+    background-color: #5bc5db;
+    transform: scale(1.05);
+}
+
+
+/* Секция BOTTOM (блоки преимуществ) */
+.bottom {
+    display: flex;
+    gap: 20px; /* Расстояние между блоками */
+    margin-top: 40px;
+    flex-wrap: wrap; /* Для адаптивности */
+}
+
+.block1, .block2, .block3 {
+    flex: 1;
+    min-width: 280px; /* Минимальная ширина блока */
+    background-color: #fff; /* Белый фон для блоков */
+    padding: 20px;
+    border-radius: 10px;
+    color: #000; /* Черный текст */
+}
+
+.block1 h2, .block2 h3, .block3 p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.block1 h2 {
+    font-weight: bold;
+}
+.block2 h3 {
+    font-weight: bold;
+}
+
+
+/* From Uiverse.io by Yaya12085 */ 
+.card {
+  max-width: 320px;
+  border-width: 1px;
+  border-color: rgba(219, 234, 254, 1);
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  grid-gap: 1rem;
+  gap: 1rem;
+}
+
+.icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: right ;
+  justify-content: right;
+  border-radius: 9999px;
+  background-color: rgba(96, 165, 250, 1);
+  padding: 0.5rem;
+  color: rgba(255, 255, 255, 1);
+}
+
+.icon svg {
+  height: 1rem;
+  width: 1rem;
+}
+
+.alert {
+  font-weight: 600;
+  color: rgba(107, 114, 128, 1);
+}
+
+.message {
+  margin-top: 1rem;
+  color: rgba(107, 114, 128, 1);
+}
+
+.actions {
+  margin-top: 1.5rem;
+}
+
+.actions a {
+  text-decoration: none;
+}
+
+.mark-as-read, .read {
+  display: inline-block;
+  border-radius: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+
+.read {
+  background-color: rgb(59, 209, 246);
+  color: rgba(255, 255, 255, 1);
+}
+
+.mark-as-read {
+  margin-top: 0.5rem;
+  background-color: rgba(249, 250, 251, 1);
+  color: rgba(107, 114, 128, 1);
+  transition: all .15s ease;
+}
+
+.mark-as-read:hover {
+  background-color: rgb(230, 231, 233);
+}
+
+
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .nav ul {
+        gap: 15px;
+    }
+    .top {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .right {
+        width: 100%; /* Кнопка занимает всю ширину в колонке */
+    }
+    .btn1 {
+        width: 150px;
+        height: 150px;
+        font-size: 16px;
+    }
+    .bottom {
+        flex-direction: column;
+    }
+    .block1, .block2, .block3 {
+        min-width: unset;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        padding: 10px 20px;
+    }
+    .nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav ul li:first-child {
+        margin-right: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .main-content-wrapper {
+        padding: 20px;
+    }
+    .h1l {
+        font-size: 36px;
+    }
+    .h1r {
+        font-size: 16px;
+    }
+}

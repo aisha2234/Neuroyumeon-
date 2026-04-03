@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuroyumeon</title>
+    <link rel="stylesheet" href="style.css">
+   
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <ul>
+                <li><img width="183px" src="Images/images/Frame_1.svg" alt=""></li>
+                <img src="blob:https://web.telegram.org/f6496a5a-3306-4296-8e80-7670a4417c9b" alt="">
+                <li></li>
+                <li>Об игре</li>
+                <li>Стоимость</li>
+                <li>Контакты</li>
+                <li></li>
+                <li></li>
+                <label class="container bell-container">
+                    <input type="checkbox" checked="checked">
+                    <svg class="bell-regular" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                        <path d="M224 0c-17.7 0-32 14.3-32 32V49.9C119.5 61.4 64 124.2 64 200v33.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416H424c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4V200c0-75.8-55.5-138.6-128-150.1V32c0-17.7-14.3-32-32-32zm0 96h8c57.4 0 104 46.6 104 104v33.4c0 47.9 13.9 94.6 39.7 134.6H72.3C98.1 328 112 281.3 112 233.4V200c0-57.4 46.6-104 104-104h8zm64 352H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z"></path>
+                    </svg>
+                    <svg class="bell-solid" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                        <path d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416H416c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"></path>
+                    </svg>
+                </label>
+                <label class="switch">
+                    <input id="input" type="checkbox" checked="darkTheme" />
+                    <div class="slider round">
+                        <div class="sun-moon">
+                            <svg id="moon-dot-1" class="moon-dot" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg>
+                            <svg id="moon-dot-2" class="moon-dot" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg>
+                            <svg id="moon-dot-3" class="moon-dot" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg>
+                            <svg id="light-ray-1" class="light-ray" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg>
+                            <svg id="light-ray-2" class="light-ray" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg>
+                            <svg id="light-ray-3" class="light-ray" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg>
+                            <svg id="cloud-1" class="cloud-dark" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg>
+                            <svg id="cloud-2" class="cloud-dark" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg>
+                            <svg id="cloud-3" class="cloud-dark" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg>
+                            <svg id="cloud-4" class="cloud-light" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg>
+                            <svg id="cloud-5" class="cloud-light" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg>
+                            <svg id="cloud-6" class="cloud-light" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg>
+                        </div>
+                        <div class="stars">
+                            <svg id="star-1" class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"></path></svg>
+                            <svg id="star-2" class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"></path></svg>
+                            <svg id="star-3" class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"></path></svg>
+                            <svg id="star-4" class="star" viewBox="0 0 20 20"><path d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"></path></svg>
+                        </div>
+                    </div>
+                </label>
+            </ul>
+        </div>
+ 
+        <div class="main-content-wrapper">
+            <div class="top">
+                <div class="left">
+                    <h1 class="h1l">Умный AI-дашборд для управления городом по принципу цифрового пульса города</h1>
+                    <h1 class="h1r">В Система не просто показывает цифры. Она анализирует транспорт, экологию и ЖКХ в реальном времени, выявляет каскадные проблемы и <br>предлагает конкретные управленческие решения при ограниченных ресурсах.</h1>
+                </div>
+                <div class="right">
+                    <button class="btn1">НАШ ИИ СОВЕТНИКА</button>
+                </div>
+            </div>
+
+            <div class="bottom">
+                <div class="block1">
+                    <h2 class="h2l">Визуализация
+Все ключевые KPI города в одном окне: транспорт, <br>экология, ЖКХ и общий индекс устойчивости.</h2>
+                </div>
+                <div class="block2">
+                    <h3 class="h2c">Детекция проблем
+Автоматический поиск аномалий и визуальное
+выделение критических отклонений без ручного мониторинга.</h3>
+                </div>
+                <div class="block3">
+                    <!-- ИСПРАВЛЕНО: закрывающий тег /p> на </p> -->
+                    <p>AI-рекомендации
+Система формирует краткую сводку и предлагает оптимальные действия с учетом ограниченности ресурсов.</p>
+                </div>
+            </div>
+
+<div class="card">
+  <div class="header">
+    <span class="icon">
+      <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path clip-rule="evenodd" d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z" fill-rule="evenodd"></path>
+      </svg>
+    </span>
+    <p class="alert">New message!</p>
+  </div>
+
+  <p class="message">
+    ПОВЫШЕН УРОВЕНЬ ДТП
+  </p>
+
+  <div class="actions">
+    <a class="read" href="">
+      Take a Look
+    </a>
+
+    <a class="mark-as-read" href="">
+      Mark as Read
+    </a>
+  </div>
+</div>
+
+
+            <div class="group relative flex w-80 flex-col rounded-xl bg-slate-950 p-4 shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-indigo-500/20">
+                <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-20 blur-sm transition-opacity duration-300 group-hover:opacity-30"></div>
+                <div class="absolute inset-px rounded-[11px] bg-slate-950"></div>
+                <div class="relative">
+                    <div class="mb-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-purple-500">
+                                <svg class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-sm font-semibold text-white">Performance Analytics</h3>
+                        </div>
+                        <span class="flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-1 text-xs font-medium text-emerald-500">
+                            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                            Live
+                        </span>
+                    </div>
+                    <div class="mb-4 grid grid-cols-2 gap-4">
+                        <div class="rounded-lg bg-slate-900/50 p-3">
+                            <p class="text-xs font-medium text-slate-400">Total Views</p>
+                            <p class="text-lg font-semibold text-white">24.5K</p>
+                            <span class="text-xs font-medium text-emerald-500">+12.3%</span>
+                        </div>
+                        <div class="rounded-lg bg-slate-900/50 p-3">
+                            <p class="text-xs font-medium text-slate-400">Conversions</p>
+                            <p class="text-lg font-semibold text-white">1.2K</p>
+                            <span class="text-xs font-medium text-emerald-500">+8.1%</span>
+                        </div>
+                    </div>
+                    <div class="mb-4 h-24 w-full overflow-hidden rounded-lg bg-slate-900/50 p-3">
+                        <div class="flex h-full w-full items-end justify-between gap-1">
+                            <div class="h-[40%] w-3 rounded-sm bg-indigo-500/30"><div class="h-[60%] w-full rounded-sm bg-indigo-500 transition-all duration-300"></div></div>
+                            <div class="h-[60%] w-3 rounded-sm bg-indigo-500/30"><div class="h-[40%] w-full rounded-sm bg-indigo-500 transition-all duration-300"></div></div>
+                            <div class="h-[75%] w-3 rounded-sm bg-indigo-500/30"><div class="h-[80%] w-full rounded-sm bg-indigo-500 transition-all duration-300"></div></div>
+                            <div class="h-[45%] w-3 rounded-sm bg-indigo-500/30"><div class="h-[50%] w-full rounded-sm bg-indigo-500 transition-all duration-300"></div></div>
+                            <div class="h-[85%] w-3 rounded-sm bg-indigo-500/30"><div class="h-[90%] w-full rounded-sm bg-indigo-500 transition-all duration-300"></div></div>
+                            <div class="h-[65%] w-3 rounded-sm bg-indigo-500/30"><div class="h-[70%] w-full rounded-sm bg-indigo-500 transition-all duration-300"></div></div>
+                            <div class="h-[95%] w-3 rounded-sm bg-indigo-500/30"><div class="h-[85%] w-full rounded-sm bg-indigo-500 transition-all duration-300"></div></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-medium text-slate-400">Last 7 days</span>
+                            <svg class="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        <button class="flex items-center gap-1 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 px-3 py-1 text-xs font-medium text-white transition-all duration-300 hover:from-indigo-600 hover:to-purple-600">
+                            View Details
+                            <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+    </header>
+</body>
+</html>
